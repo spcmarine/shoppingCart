@@ -31,7 +31,7 @@ let generateShop = () => {
     shop.innerHTML = shopItems.map((x) => {
         let { id, name, price, description, img } = x
         return `
-            <div id=product-id-${x.id} class="item">
+            <div id=product-id-${id} class="item">
                 <img width="220" src="${img}" alt="">
                 <div class="details">
                     <h3>${name}</h3>
@@ -64,7 +64,8 @@ let increment = (id) => {
     } else {
       search.quantity += 1;
     }
-    console.log(basket);
+    // console.log(basket);
+    update(selectedItem);
 
   };
   let decrement = (id) => {
@@ -76,9 +77,19 @@ let increment = (id) => {
     else {
       search.quantity -= 1;
     }
-    console.log(basket);
+    // console.log(basket);
+    update(selectedItem);
+    
 
     };
 
 let update = (id) => {
+    let search = basket.find((x) => x.id === id);
+    console.log(search.quantity);
+    document.getElementById(id).innerHTML = search.quantity
+    calculation()
+}
+
+let calculation = () => {
+    console.log("calculation is running")
 }
