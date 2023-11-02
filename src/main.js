@@ -55,7 +55,6 @@ generateShop();
 let increment = (id) => {
     let selectedItem = id;
     let search = basket.find((x) => x.id === selectedItem);
-    // console.log(selectedItem)
     if (search === undefined) {
       basket.push({
         id: selectedItem,
@@ -64,7 +63,6 @@ let increment = (id) => {
     } else {
       search.quantity += 1;
     }
-    // console.log(basket);
     update(selectedItem);
 
   };
@@ -77,7 +75,6 @@ let increment = (id) => {
     else {
       search.quantity -= 1;
     }
-    // console.log(basket);
     update(selectedItem);
     
 
@@ -85,11 +82,12 @@ let increment = (id) => {
 
 let update = (id) => {
     let search = basket.find((x) => x.id === id);
-    console.log(search.quantity);
     document.getElementById(id).innerHTML = search.quantity
-    calculation()
+    calculation();
 }
 
 let calculation = () => {
-    console.log("calculation is running")
+    let cartIcon = document.getElementById("cartAmount");
+    let totalItems = basket.map((x) => x.quantity).reduce((x, y) => x + y, 0);
+    cartIcon.innerHTML = totalItems;
 }
