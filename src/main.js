@@ -1,7 +1,7 @@
 let shop = document.getElementById("shop");
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
-
+console.log("JavaScript is running")
 
 let generateShop = () => {
     shop.innerHTML = shopItems.map((x) => {
