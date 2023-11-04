@@ -4,6 +4,17 @@
   box-sizing: border-box;
 }
 
+i {
+  cursor: pointer;
+}
+
+
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
 body{
   font-family: sans-serif;
 }
@@ -38,6 +49,11 @@ body{
   border-radius: 4px;
 
 }
+
+
+
+
+
 
 .shop{
   display: grid;
@@ -92,3 +108,72 @@ body{
   color: green;
 }
 
+/* 
+Styles for the shopping cart below
+*/
+
+.text-center{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.shopping-cart{
+  display: flex;
+  align-content: center;
+}
+
+.HomeBtn, .payment, .keepShopping{
+  background-color: #342E37;
+  color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.bi-x-lg{
+  color: red;
+  font-weight: bold;
+}
+
+/* 
+Style rules for shopping cart
+*/
+
+.shopping-cart{
+  display: grid;
+  grid-template-columns: repeat(1, 320px);
+  justify-content: center;
+  gap: 15px;
+}
+
+/* 
+Style rules for cart item
+*/
+
+.cart-item{
+  border: 2px solid black;
+  border-radius: 6px;
+  display: flex;
+}
+
+.title-price-x{
+  width: 195px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-price{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-item-price{
+  background-color: #342E37;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
