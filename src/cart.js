@@ -19,6 +19,7 @@ let generateCardItems = () => {
             .map((x) => {
               let { id, item } = x;
               let search = shopItems.find((y) => y.id === id) || [];
+              let price = x.quantity * search.price
               return `
             <div class="cart-item">
               <img width="100" src=${search.img} alt="" />
@@ -40,7 +41,7 @@ let generateCardItems = () => {
                     <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
                 </div>
       
-                <h3>£ ${x.quantity * search.price}</h3>
+                <h3>£ ${price.toFixed(2)}</h3>
               </div>
             </div>
             `;
@@ -114,7 +115,7 @@ let totalAmount = () => {
             let {quantity, id} = x;
             let search = shopItems.find((y) => y.id === id) || [];
             return quantity * search.price;
-        }).reduce((x, y) => x + y, 0)
+        }).reduce((x, y) => x + y, 0).toFixed(2);
         label.innerHTML = `
         <h2>Total Bill: £ ${totalBill}</h2>
         <button class="payment">Proceed to payment</button>
